@@ -1,0 +1,12 @@
+.form{
+  margin: 0 auto;
+  width: 400px;
+  border:solid 1px;
+  margin-top: 70px;
+}
+.right{
+   text-align: right;
+}
+.login{
+text-align: center;
+}
