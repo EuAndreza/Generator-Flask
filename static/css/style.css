@@ -1,8 +1,24 @@
 .form{
-  margin: 0 auto;
+  
+  /*margin: 0 auto;
   width: 400px;
   border:solid 1px;
   margin-top: 70px;
+  background-color: #e6e6e6;
+  position: absolute;*/
+
+position: absolute;
+left: 45%; 
+top: 30%;
+width: 400px; /* Largura da DIV */
+height: 70%; /* Altura da DIV */
+margin-left: -150px;
+margin-top: -125px;
+background-color: #e6e6e6;
+z-index: 1000; /* Faz com que fique sobre todos os elementos da página */
+border: solid 2px;
+border-color: #e6e6e6;
+border-radius: 10px;
 }
 .right{
    text-align: right;
@@ -10,3 +26,5 @@
 .login{
 text-align: center;
 }
+body{
+  background-color:  #737373;
