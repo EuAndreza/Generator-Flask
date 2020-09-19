@@ -2,8 +2,6 @@
 <html>
 <head>
 	<title>Login</title>
-	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-  <META HTTP-EQUIV="REFRESH" CONTENT="2">
 
 	<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -21,20 +19,20 @@
 </head>
 <body>
 	
-	<form class="form">
+	<form class="form" method="POST">
 
 	<h1 class="login">Login</h1>
 	
 	<div class="row">
           <div class="input-field col s12">
-            <input class="validate" id="email" type="email">
+            <input class="validate" id="email" type="email" name="username">
             <label for="email" data-error="wrong" data-success="right">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
            
-            <input id="password" type="password">
+            <input id="password" type="password" name="password">
             <label for="password">Password</label>
 
 

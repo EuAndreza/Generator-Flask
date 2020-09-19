@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- fontes materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+</head>
+<body>
+	
+<div class="row">
+    <form class="col s12">
+    <h1>Dados do cliente</h1>
+      <div class="row">
+      	<div class="input-field col s6">
+		<input id="nomeCli" type="text" class="validate">
+		<label for="nomeCli">Nome</label>
+        </div>
+
+ <label>Estado civil:</label>
+  <select class="browser-default">
+    		<option value="#" selected></option> 
+			<option value="solteiro(a)">solteiro(a)</option>
+			<option value="casado(a)">casado(a)</option>
+			<option value="divorciado(a)">divorciado(a)</option>
+			<option value="separado(a)">separado(a)</option>
+			<option value="viuvo(a)">viúvo(a)</option>
+  </select>
+
+Profissão: <input type="text" name="profissaoCli">
+CPF:<input type="text" name="cpfCli" onkeypress="$(this).mask('000.000.000-00');">
+RG: <input type="text" name="rgCli" onkeypress="$(this).mask('0.000.000');">
+<h1>Endereço</h1>
+Rua:<input type="text" name="ruaCli">
+Bairro:<input type="text" name="bairroCli">
+Cidade:<input type="text" name="cidadeCli">
+Estado: <select name="EstadoCli">
+			 option value="#" selected></option> 
+			  <option value="Acre">Acre</option>
+			  <option value="Alagoas">Alagoas</option>
+			  <option value="Amapa">Amapá</option>
+			  <option value="Amazonas">Amazonas</option>
+			  <option value="Bahia">Bahia</option>
+			  <option value="Ceara">Ceará</option>
+			  <option value="Espirito Santo">Espírito Santo</option>
+			  <option value="Goias">Goiás</option>
+			  <option value="Maranhao">Maranhão</option>
+			  <option value="Mato Grosso">Mato Grosso</option>
+			  <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+			  <option value="Minas Gerais">Minas Gerais</option>
+			  <option value="Para">Pará</option>
+			  <option value="Paraiba">Paraíba</option>
+			  <option value="Parana">Paraná</option>
+			  <option value="Pernambuco">Pernambuco</option>
+			  <option value="Piauí">Piauí</option>
+			  <option value="Rio de Janeiro">Rio de Janeiro</option>
+			  <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+			  <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+			  <option value="Rondonia">Rondônia</option>
+			  <option value="Roraima">Roraima</option>
+			  <option value="Santa Catarina">Santa Catarina</option>
+			  <option value="Sao Paulo">São Paulo</option>
+			  <option value="Sergipe">Sergipe</option>
+			  <option value="Tocantins">Tocantins</option>
+			  <option value="Distrito Federal">Distrito Federal</option>
+			</select>
+CEP:<input type="text" name="cepCli" onkeypress="$(this).mask('00000-000');">
+Telefone:<input type="tel" name="telefoneCli" pattern="([0-9]{2})[9]{1}.[0-9]{4}-[0-9]{4}" onkeypress="$(this).mask('(00)9.0000-0000');">
+
+<h1>Dados do procurador</h1>
+
+Nome:<input type="text" name="nomePro">
+Estado civil:<select name="EstadoCivilPro">
+			  <option value="#" selected></option> 
+			  <option value="solteiro(a)">solteiro(a)</option>
+			  <option value="casado(a)">casado(a)</option>
+			  <option value="divorciado(a)">divorciado(a)</option>
+			  <option value="separado(a)">separado(a)</option>
+			  <option value="viuvo(a)">viúvo(a)</option>
+			</select>
+Profissão: <input type="text" name="profissaoPro">
+CPF:<input type="text" name="cpfPro" onkeypress="$(this).mask('000.000.000-00');">
+RG: <input type="text" name="rgPro" onkeypress="$(this).mask('0.000.000');">
+<h1>Endereço do procurador</h1>
+Rua:<input type="text" name="ruaPro">
+Bairro:<input type="text" name="bairroPro">
+Cidade:<input type="text" name="cidadePro">
+Estado: <select name="EstadoPro">
+			  <option value="#" selected></option> 
+			  <option value="Acre">Acre</option>
+			  <option value="Alagoas">Alagoas</option>
+			  <option value="Amapa">Amapá</option>
+			  <option value="Amazonas">Amazonas</option>
+			  <option value="Bahia">Bahia</option>
+			  <option value="Ceara">Ceará</option>
+			  <option value="Espirito Santo">Espírito Santo</option>
+			  <option value="Goias">Goiás</option>
+			  <option value="Maranhao">Maranhão</option>
+			  <option value="Mato Grosso">Mato Grosso</option>
+			  <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+			  <option value="Minas Gerais">Minas Gerais</option>
+			  <option value="Para">Pará</option>
+			  <option value="Paraiba">Paraíba</option>
+			  <option value="Parana">Paraná</option>
+			  <option value="Pernambuco">Pernambuco</option>
+			  <option value="Piauí">Piauí</option>
+			  <option value="Rio de Janeiro">Rio de Janeiro</option>
+			  <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+			  <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+			  <option value="Rondonia">Rondônia</option>
+			  <option value="Roraima">Roraima</option>
+			  <option value="Santa Catarina">Santa Catarina</option>
+			  <option value="Sao Paulo">São Paulo</option>
+			  <option value="Sergipe">Sergipe</option>
+			  <option value="Tocantins">Tocantins</option>
+			  <option value="Distrito Federal">Distrito Federal</option>
+			</select>
+CEP:<input type="text" name="cepPro" onkeypress="$(this).mask('00000-000');">
+Telefone:<input type="tel" name="telefonePro" pattern="([0-9]{2})[9]{1}.[0-9]{4}-[0-9]{4}" onkeypress="$(this).mask('(00)9.0000-0000');">
+</div>
+</form>
+</div>
+</body>
+</html>
+
+
+
+
