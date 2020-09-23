@@ -4,18 +4,10 @@
 	<title>Cadastro</title>
 </head>
 <body>
-	<div>
-		<form method="get">
-		<input type="text" name="nome">
-		<input type="submit" name="Enviar">
-		</form>
-	</div>
-		{%if nome %}
-		<div>
-			{{nome}}
-		</div>
-		{% endif %}
-
+	<h1>Bem vindo</h1>
+		 {% for exibir in mostrar %}
+           <a href="#">{{exibir}}</a>
+           {% endfor %}
 
 </body>
 </html>

@@ -13,9 +13,8 @@
 
     <!-- fontes materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <script type="text/javascript">
     	document.addEventListener('DOMContentLoaded', function() {
@@ -28,21 +27,34 @@
   $(document).ready(function(){
     $('select').formSelect();
   });
-    </script>
 
-<h1>Cadastro de Cliente</h1>
+    </script>
+    
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Cadastro de Clientes</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/index">Voltar</a></li>
+       <!-- <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>-->
+      </ul>
+    </div>
+  </nav>
+
+
 </head>
 <body>
 
-<div class="row">
+<div class="row cadastro">
 
-    <form class="col s10">
+    <form class="col s10 cad" action="{{url_for('inserir')}}" method="POST">
 
-    <h2>Dados do cliente</h2>
+    <h4 class="titulo">Dados do cliente</h4>
 
     <div class="row">
     	<div class="input-field col s5">
-		<input id="nomeCli" type="text" class="validate">
+		<input id="nomeCli" type="text" class="validate" name="nomeCli">
 		<label for="nomeCli">Nome</label>
         </div>
  
@@ -59,38 +71,38 @@
  		</div>
 
       	<div class="input-field col s5">
-		<input id="profissaoCli" type="text" class="validate">
+		<input id="profissaoCli" type="text" class="validate" name="profissaoCli">
 		<label for="profissaoCli">Profissão</label>
 		</div>
 
    		<div class="input-field col s5">
-		<input id="cpfCli" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')">
+		<input id="cpfCli" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')" name="cpfCli">
 		<label for="cpfCli">CPF:</label>
    		</div>
 
 		<div class="input-field col s5">
-		<input id="rgCli" type="text" class="validate" onkeypress="$(this).mask('0.000.000')">
+		<input id="rgCli" type="text" class="validate" onkeypress="$(this).mask('0.000.000')" name="rgCli">
 		<label for="rgCli">RG:</label>
    		</div>
 	</div>
 
 
-	<h4>Endereço</h4>
+	<h5 class="titulo">Endereço</h5>
       
     <div class="row">
      	
      	<div class="input-field col s5">
-		<input id="ruaCli" type="text" class="validate">
+		<input id="ruaCli" type="text" class="validate" name="ruaCli">
 		<label for="ruaCli">Rua:</label>
         </div>
 
    		<div class="input-field col s5">
-		<input id="bairroCli" type="text" class="validate">
+		<input id="bairroCli" type="text" class="validate" name="bairroCli">
 		<label for="bairroCli">Bairro</label>
 		</div>
 
 		<div class="input-field col s5">
-		<input id="cidadeCli" type="text" class="validate">
+		<input id="cidadeCli" type="text" class="validate" name="cidadeCli">
 		<label for="cidadeCli">Cidade</label>
 		</div>
 
@@ -129,22 +141,22 @@
   		</div>
 
   		<div class="input-field col s5">
-		<input id="cepCli" type="text" class="validate" onkeypress="$(this).mask('00000-000')">
+		<input id="cepCli" type="text" class="validate" onkeypress="$(this).mask('00000-000')" name="cepCli">
 		<label for="cepCli">CEP:</label>
    		</div>
 
 		<div class="input-field col s5">
-		<input id="telefoneCli" type="text" class="validate" pattern="([0-9]{2})[0-9]{1}.[0-9]{4}-[0-9]{4}" onkeypress="$(this).mask('(00)0.0000-0000');">
+		<input id="telefoneCli" type="tel" class="validate" onkeypress="$(this).mask('(00)0.0000-0000');" name="telefoneCli">
 		<label for="telefoneCli">Telefone:</label>
    		</div>
    	</div>
 
-	<h2>Dados do procurador</h2>
+	<h4 class="titulo">Dados do procurador</h4>
     
     <div class="row">
     	
     	<div class="input-field col s5">
-		<input id="nomePro" type="text" class="validate">
+		<input id="nomePro" type="text" class="validate" name="nomePro">
 		<label for="nomePro">Nome</label>
         </div>
  
@@ -161,36 +173,36 @@
   		</div>
 
       	<div class="input-field col s5">
-		<input id="profissaoPro" type="text" class="validate">
+		<input id="profissaoPro" type="text" class="validate" name="profissaoPro">
 		<label for="profissaoPro">Profissão</label>
 		</div>
 
    		<div class="input-field col s5">
-		<input id="cpfPro" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')">
+		<input id="cpfPro" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')" name="cpfPro">
 		<label for="cpfPro">CPF:</label>
    		</div>
 
 		<div class="input-field col s5">
-		<input id="rgPro" type="text" class="validate" onkeypress="$(this).mask('0.000.000')">
+		<input id="rgPro" type="text" class="validate" onkeypress="$(this).mask('0.000.000')" name="rgPro">
 		<label for="rgPro">RG:</label>
    		</div>
 	</div>
 
-	<h4>Endereço</h4>
+	<h5 class="titulo">Endereço</h5>
       
     	<div class="row">
       	<div class="input-field col s5">
-		<input id="ruaPro" type="text" class="validate">
+		<input id="ruaPro" type="text" class="validate" name="ruaPro">
 		<label for="ruaPro">Rua:</label>
         </div>
 
    		<div class="input-field col s5">
-		<input id="bairroPro" type="text" class="validate">
+		<input id="bairroPro" type="text" class="validate" name="bairroPro">
 		<label for="bairroPro">Bairro</label>
 		</div>
 
 		<div class="input-field col s5">
-		<input id="cidadePro" type="text" class="validate">
+		<input id="cidadePro" type="text" class="validate" name="cidadePro">
 		<label for="cidadePro">Cidade</label>
 		</div>
 
@@ -229,17 +241,24 @@
   		</div>
 
   		<div class="input-field col s5">
-		<input id="cepPro" type="text" class="validate" onkeypress="$(this).mask('00000-000')">
+		<input id="cepPro" type="text" class="validate" onkeypress="$(this).mask('00000-000')" name="cepPro">
 		<label for="cepPro">CEP:</label>
    		</div>
 
 		<div class="input-field col s5">
-		<input id="telefonePro" type="text" class="validate" pattern="([0-9]{2})[0-9]{1}.[0-9]{4}-[0-9]{4}" onkeypress="$(this).mask('(00)0.0000-0000');">
+		<input id="telefonePro" type="tel" class="validate" onkeypress="$(this).mask('(00)0.0000-0000');" name="telefonePro">
 		<label for="telefonePro">Telefone:</label>
    		</div>
 
+   		<div class="row">
+        <div class="input-field col s10">
+          <textarea id="motivo" class="materialize-textarea" name="motivo"></textarea>
+          <label for="textarea1">Qual o motivo para o pedido desta procuração?</label>
+        </div>
+     	</div>
+
 </div>
-<button class="waves-effect waves-light btn-large">Cadastrar</button>
+<button class="waves-effect waves-light btn-large" type="submit">Cadastrar</button>
 </form>
 </div>
 </body>
