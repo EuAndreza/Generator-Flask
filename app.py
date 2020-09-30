@@ -1,6 +1,6 @@
 
 from datetime import date
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
 
 from gerador import pdf
 # ...
@@ -9,11 +9,13 @@ app.secret_key = 'andreza'
 
 data = date.today()
 
+
 @app.route("/home")
 def home():
 	return render_template('cadastro.html')
 
-@app.route("/gerar",methods=['GET', 'POST'])
+
+@app.route("/gerar", methods=['GET', 'POST'])
 def gerar():
 	if request.method == 'POST':
 		nome_cliente = request.form['nomeCli']
@@ -41,7 +43,13 @@ def gerar():
 		fone_procurador = request.form['telefonePro']
 		motivo_procuracao = request.form['motivo']
 
-		enviar = pdf(nome_cliente,estado_civil_cliente,profissao_cliente,cpf_cliente,rg_cliente,rua_cliente,bairro_cliente,cidade_cliente,estado_cliente,cep_cliente,fone_cliente,nome_procurador,estado_civil_procurador,profissao_procurador,cpf_procurador,rg_procurador,rua_procurador,bairro_procurador,cidade_procurador,estado_procurador,cep_procurador,fone_procurador,motivo_procuracao)
+		enviar = pdf(
+			nome_cliente, estado_civil_cliente, profissao_cliente, cpf_cliente, rg_cliente, rua_cliente,
+			bairro_cliente, cidade_cliente, estado_cliente, cep_cliente, fone_cliente, nome_procurador,
+			estado_civil_procurador, profissao_procurador, cpf_procurador, rg_procurador, rua_procurador,
+			bairro_procurador, cidade_procurador, estado_procurador, cep_procurador, fone_procurador,
+			motivo_procuracao
+		)
 		
 		return enviar
 	
@@ -50,5 +58,6 @@ def gerar():
 def index():
 	return render_template('index.html')
 
+
 if __name__ == '__main__':
-	app.run(debug=True,port=5005)
+	app.run(debug=True, port=5005)
