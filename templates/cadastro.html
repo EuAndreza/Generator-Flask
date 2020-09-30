@@ -48,7 +48,7 @@
 
 <div class="row cadastro">
 
-    <form class="col s10 cad" action="{{url_for('inserir')}}" method="POST">
+    <form class="col s10 cad" action="{{url_for('gerar')}}" method="POST">
 
     <h4 class="titulo">Dados do cliente</h4>
 
@@ -250,12 +250,10 @@
 		<label for="telefonePro">Telefone:</label>
    		</div>
 
-   		<div class="row">
         <div class="input-field col s10">
           <textarea id="motivo" class="materialize-textarea" name="motivo"></textarea>
           <label for="textarea1">Qual o motivo para o pedido desta procuração?</label>
         </div>
-     	</div>
 
 </div>
 <button class="waves-effect waves-light btn-large" type="submit">Cadastrar</button>
