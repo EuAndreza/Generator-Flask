@@ -47,4 +47,17 @@ border-radius: 10px;
 .nav-wrapper{
 	background-color:  #1a1a1a;
 }
-
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.video-div{
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}

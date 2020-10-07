@@ -1,4 +1,3 @@
-
 from datetime import date
 from flask import Flask, render_template, request
 
@@ -8,6 +7,10 @@ app = Flask(__name__)
 app.secret_key = 'andreza'
 
 data = date.today()
+
+@app.route("/")
+def index():
+	return render_template('index.html')
 
 
 @app.route("/home")
@@ -52,11 +55,6 @@ def gerar():
 		)
 		
 		return enviar
-	
-
-@app.route("/index")
-def index():
-	return render_template('index.html')
 
 
 if __name__ == '__main__':

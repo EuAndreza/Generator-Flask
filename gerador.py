@@ -186,7 +186,7 @@ def pdf(
 	gerador.drawString(30, 190, '(dia/mês/ano).')
 	# linha 19
 	gerador.line(100, 130, 250, 130)
-	gerador.drawString(120, 133, 'Recife')
+	gerador.drawString(120, 133, municipio)
 	gerador.line(255, 130, 310, 130)
 	gerador.drawString(265, 133, str(data.day))
 	gerador.drawString(312, 130, 'de')
@@ -206,6 +206,6 @@ def pdf(
 	output.close()
 
 	response = make_response(pdf_out)
-	response.headers['Content-Disposition'] = "attachment; filename='sakulaci.pdf"
+	response.headers['Content-Disposition'] = "attachment; filename=download.pdf"
 	response.mimetype = 'application/pdf'
 	return response

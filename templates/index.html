@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cadastro</title>
+	<title>Home</title>
+
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- fontes materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha512-kBFfSXuTKZcABVouRYGnUo35KKa1FBrYgwG4PAx7Z2Heroknm0ca2Fm2TosdrrI356EDHMW383S3ISrwKcVPUw==" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 <body>
-	<h1>Bem vindo</h1>
-		 {% for exibir in mostrar %}
-           <a href="#">{{exibir}}</a>
-           {% endfor %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">GENERATOR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
 
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">Bem vindo ao generator</h1>
+          <p class="flow-text">Um emissor de documentação parametrizada voltada para advogados.</p>
+          <a class="waves-effect waves-light btn-large" href="/home">Vamos gerar um documento?</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="font-weight-light">Como usar o GENERATOR?</h2>
+      <p>Um sistema de fácil utilização, onde o advogado irá apenas inserir os dados do cliente que estará fazendo a requisição e pronto, o arquivo será disponibilizado para download.</p>
+      <p>Veja o exemplo abaixo:</p>
+    <div class="video-div">
+      <video width="720" height="640" controls="controls" autoplay="autoplay">
+        <source src="/home/usuario/Documentos/teste.mkv" type="video/mp4">
+          <object data="" width="320" height="240">
+            <embed width="320" height="240" src="/home/usuario/Documentos/teste.mkv">
+          </object>
+      </video>
+    </div>
+  </div>
+</section>
 </body>
 </html>
