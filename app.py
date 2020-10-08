@@ -4,9 +4,11 @@ from flask import Flask, render_template, request
 from gerador import pdf
 # ...
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = 'andreza'
 
 data = date.today()
+
 
 @app.route("/")
 def index():
@@ -15,7 +17,7 @@ def index():
 
 @app.route("/home")
 def home():
-	return render_template('cadastro.html')
+	return render_template('gerador.html')
 
 
 @app.route("/gerar", methods=['GET', 'POST'])

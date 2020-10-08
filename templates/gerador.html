@@ -1,267 +1,243 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <head>
+    <title>Dados do cliente</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!---------------------------------- JQUERY ------------------------------------------>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--------------------------------- BOOTSTRAP --------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha512-kBFfSXuTKZcABVouRYGnUo35KKa1FBrYgwG4PAx7Z2Heroknm0ca2Fm2TosdrrI356EDHMW383S3ISrwKcVPUw==" crossorigin="anonymous"></script>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gerador.css') }}">
 
-    <!-- fontes materialize -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="{{url_for('gerar')}}" method="POST" class="center">
+        <h1>Dados do cliente</h1>
 
-    <script type="text/javascript">
-    	document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
+        <div class="item">
+          <h6>Nome completo (conforme registrado)</h6>
+          <div class="name-item">
+            <input type="text" name="nomeCli" placeholder="nome completo" />
+          </div>
+        </div>
 
-  // Or with jQuery
+        <div class="item">
+          <h6>Estado Civil</h6>
+          <div class="city-item">
+          <select name ="EstadoCivilCli">
+            <option value="" disabled selected></option>
+            <option value="casado(a)">casado(a)</option>
+            <option value="divorciado(a)">divorciado(a)</option>
+            <option value="solteiro(a)">solteiro(a)</option>
+            <option value="separado(a)">separado(a)</option>
+            <option value="viuvo(a)">viúvo(a)</option>
+            </select>
+          </div>
+        </div>
 
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
+        <div class="item">
+          <h6>Profissão</h6>
+          <div class="name-item">
+          <input type="text" name="profissaoCli"/>
+          </div>
+        </div>
 
-    </script>
-    
+        <div class="item">
+          <h6>CPF</h6>
+          <div class="name-item">
+            <input id="cpfCli" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')" name="cpfCli">
+          </div>
+        </div>
 
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Cadastro de Clientes</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/index">Voltar</a></li>
-       <!-- <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>-->
-      </ul>
+        <div class="item">
+          <h6>RG</h6>
+          <div class="name-item">
+          <input id="rgCli" type="text" class="validate" onkeypress="$(this).mask('0.000.000')" name="rgCli">
+          </div>
+        </div>
+
+        <div class="item">
+          <h2>Endereço do cliente</h2>
+          <div class="name-item">
+          <input type="text" name="ruaCli" placeholder="Endereço"/>
+          </div>
+
+          <div class="name-item">
+            <input type="text" name="cidadeCli" placeholder="Cidade" />
+          </div>
+
+          <div class="name-item">
+            <input type="text" name="bairroCli" placeholder="Bairro" />
+          </div>
+
+          <div class="name-item">
+            <input id="cepCli" type="text" placeholder="CEP" class="validate" onkeypress="$(this).mask('00000-000')" name="cepCli">
+          </div>
+
+          <div class="city-item">
+            <select name ="EstadoCli">
+              <option value="" disabled selected>Estado</option>
+              <option value="Acre">Acre</option>
+              <option value="Alagoas">Alagoas</option>
+              <option value="Amapa">Amapá</option>
+              <option value="Amazonas">Amazonas</option>
+              <option value="Bahia">Bahia</option>
+              <option value="Ceara">Ceará</option>
+              <option value="Espirito Santo">Espírito Santo</option>
+              <option value="Goias">Goiás</option>
+              <option value="Maranhao">Maranhão</option>
+              <option value="Mato Grosso">Mato Grosso</option>
+              <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+              <option value="Minas Gerais">Minas Gerais</option>
+              <option value="Para">Pará</option>
+              <option value="Paraiba">Paraíba</option>
+              <option value="Parana">Paraná</option>
+              <option value="Pernambuco">Pernambuco</option>
+              <option value="Piauí">Piauí</option>
+              <option value="Rio de Janeiro">Rio de Janeiro</option>
+              <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+              <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+              <option value="Rondonia">Rondônia</option>
+              <option value="Roraima">Roraima</option>
+              <option value="Santa Catarina">Santa Catarina</option>
+              <option value="Sao Paulo">São Paulo</option>
+              <option value="Sergipe">Sergipe</option>
+              <option value="Tocantins">Tocantins</option>
+              <option value="Distrito Federal">Distrito Federal</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="item">
+          <h6>Telefone</h6>
+          <div class="name-item">
+          <input id="telefoneCli" type="tel" class="validate" onkeypress="$(this).mask('(00)0.0000-0000');" name="telefoneCli">
+          </div>
+        </div>
+
+      <h1>Dados do Procurador</h1>
+
+        <div class="item">
+          <h6>Nome completo (conforme registrado)</h6>
+          <div class="name-item">
+            <input type="text" name="nomePro" placeholder="nome completo" />
+          </div>
+        </div>
+
+        <div class="item">
+          <h6>Estado Civil</h6>
+          <div class="city-item">
+          <select name="EstadoCivilPro">
+            <option value="" disabled selected></option>
+            <option value="casado(a)">casado(a)</option>
+            <option value="divorciado(a)">divorciado(a)</option>
+            <option value="solteiro(a)">solteiro(a)</option>
+            <option value="separado(a)">separado(a)</option>
+            <option value="viuvo(a)">viúvo(a)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="item">
+          <h6>Profissão</h6>
+          <div class="name-item">
+          <input type="text" name="profissaoPro"/>
+          </div>
+        </div>
+
+        <div class="item">
+          <h6>CPF</h6>
+          <div class="name-item">
+            <input id="cpfPro" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')" name="cpfPro">
+          </div>
+        </div>
+
+        <div class="item">
+          <h6>RG</h6>
+          <div class="name-item">
+          <input id="rgPro" type="text" class="validate" onkeypress="$(this).mask('0.000.000')" name="rgPro">
+          </div>
+        </div>
+
+        <div class="item">
+          <h2>Endereço do procurador</h2>
+          <div class="name-item">
+          <input type="text" name="ruaPro" placeholder="Endereço"/>
+          </div>
+
+          <div class="name-item">
+            <input type="text" name="cidadePro" placeholder="Cidade" />
+          </div>
+
+          <div class="name-item">
+            <input type="text" name="bairroPro" placeholder="Bairro" />
+          </div>
+
+          <div class="name-item">
+            <input id="cepCli" type="text" placeholder="CEP" class="validate" onkeypress="$(this).mask('00000-000')" name="cepPro">
+          </div>
+
+          <div class="city-item">
+            <select name ="EstadoPro">
+              <option value="" disabled selected>Estado</option>
+              <option value="Acre">Acre</option>
+              <option value="Alagoas">Alagoas</option>
+              <option value="Amapa">Amapá</option>
+              <option value="Amazonas">Amazonas</option>
+              <option value="Bahia">Bahia</option>
+              <option value="Ceara">Ceará</option>
+              <option value="Espirito Santo">Espírito Santo</option>
+              <option value="Goias">Goiás</option>
+              <option value="Maranhao">Maranhão</option>
+              <option value="Mato Grosso">Mato Grosso</option>
+              <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+              <option value="Minas Gerais">Minas Gerais</option>
+              <option value="Para">Pará</option>
+              <option value="Paraiba">Paraíba</option>
+              <option value="Parana">Paraná</option>
+              <option value="Pernambuco">Pernambuco</option>
+              <option value="Piauí">Piauí</option>
+              <option value="Rio de Janeiro">Rio de Janeiro</option>
+              <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+              <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+              <option value="Rondonia">Rondônia</option>
+              <option value="Roraima">Roraima</option>
+              <option value="Santa Catarina">Santa Catarina</option>
+              <option value="Sao Paulo">São Paulo</option>
+              <option value="Sergipe">Sergipe</option>
+              <option value="Tocantins">Tocantins</option>
+              <option value="Distrito Federal">Distrito Federal</option>
+            </select>
+          </div>
+        </div>
+
+         <div class="item">
+          <h6>Telefone</h6>
+          <div class="name-item">
+          <input id="telefonePro" type="tel" class="validate" onkeypress="$(this).mask('(00)0.0000-0000');" name="telefonePro">
+          </div>
+        </div>
+
+        <div class="item">
+          <h5>Qual o motivo para o pedido desta procuração?</h5>
+          <textarea rows="5" name="motivo"></textarea>
+        </div>
+        
+        <div class="btn-block">
+          <button type="submit" class="btn btn-outline-dark">Gerar</button>
+        </div>
+      </form>
     </div>
-  </nav>
-
-
-</head>
-<body>
-
-<div class="row cadastro">
-
-    <form class="col s10 cad" action="{{url_for('gerar')}}" method="POST">
-
-    <h4 class="titulo">Dados do cliente</h4>
-
-    <div class="row">
-    	<div class="input-field col s5">
-		<input id="nomeCli" type="text" class="validate" name="nomeCli">
-		<label for="nomeCli">Nome</label>
-        </div>
- 
- 		<div class="input-field col s5">
-    	<select name ="EstadoCivilCli">
-      		<option value="" disabled selected></option>
-			<option value="solteiro(a)">solteiro(a)</option>
-			<option value="casado(a)">casado(a)</option>
-			<option value="divorciado(a)">divorciado(a)</option>
-			<option value="separado(a)">separado(a)</option>
-			<option value="viuvo(a)">viúvo(a)</option>
-    	</select>
-   		<label>Estado Civil</label>
- 		</div>
-
-      	<div class="input-field col s5">
-		<input id="profissaoCli" type="text" class="validate" name="profissaoCli">
-		<label for="profissaoCli">Profissão</label>
-		</div>
-
-   		<div class="input-field col s5">
-		<input id="cpfCli" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')" name="cpfCli">
-		<label for="cpfCli">CPF:</label>
-   		</div>
-
-		<div class="input-field col s5">
-		<input id="rgCli" type="text" class="validate" onkeypress="$(this).mask('0.000.000')" name="rgCli">
-		<label for="rgCli">RG:</label>
-   		</div>
-	</div>
-
-
-	<h5 class="titulo">Endereço</h5>
-      
-    <div class="row">
-     	
-     	<div class="input-field col s5">
-		<input id="ruaCli" type="text" class="validate" name="ruaCli">
-		<label for="ruaCli">Rua:</label>
-        </div>
-
-   		<div class="input-field col s5">
-		<input id="bairroCli" type="text" class="validate" name="bairroCli">
-		<label for="bairroCli">Bairro</label>
-		</div>
-
-		<div class="input-field col s5">
-		<input id="cidadeCli" type="text" class="validate" name="cidadeCli">
-		<label for="cidadeCli">Cidade</label>
-		</div>
-
-		<div class="input-field col s5">
-    	<select name ="EstadoCli">
-     		<option value="" disabled selected></option>
-			<option value="Acre">Acre</option>
-			<option value="Alagoas">Alagoas</option>
-			<option value="Amapa">Amapá</option>
-			<option value="Amazonas">Amazonas</option>
-			<option value="Bahia">Bahia</option>
-			<option value="Ceara">Ceará</option>
-			<option value="Espirito Santo">Espírito Santo</option>
-			<option value="Goias">Goiás</option>
-			<option value="Maranhao">Maranhão</option>
-			<option value="Mato Grosso">Mato Grosso</option>
-			<option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-			<option value="Minas Gerais">Minas Gerais</option>
-			<option value="Para">Pará</option>
-			<option value="Paraiba">Paraíba</option>
-			<option value="Parana">Paraná</option>
-			<option value="Pernambuco">Pernambuco</option>
-			<option value="Piauí">Piauí</option>
-			<option value="Rio de Janeiro">Rio de Janeiro</option>
-			<option value="Rio Grande do Norte">Rio Grande do Norte</option>
-			<option value="Rio Grande do Sul">Rio Grande do Sul</option>
-			<option value="Rondonia">Rondônia</option>
-			<option value="Roraima">Roraima</option>
-			<option value="Santa Catarina">Santa Catarina</option>
-			<option value="Sao Paulo">São Paulo</option>
-			<option value="Sergipe">Sergipe</option>
-			<option value="Tocantins">Tocantins</option>
-			<option value="Distrito Federal">Distrito Federal</option>
-    	</select>
-    	<label>Estado</label>
-  		</div>
-
-  		<div class="input-field col s5">
-		<input id="cepCli" type="text" class="validate" onkeypress="$(this).mask('00000-000')" name="cepCli">
-		<label for="cepCli">CEP:</label>
-   		</div>
-
-		<div class="input-field col s5">
-		<input id="telefoneCli" type="tel" class="validate" onkeypress="$(this).mask('(00)0.0000-0000');" name="telefoneCli">
-		<label for="telefoneCli">Telefone:</label>
-   		</div>
-   	</div>
-
-	<h4 class="titulo">Dados do procurador</h4>
-    
-    <div class="row">
-    	
-    	<div class="input-field col s5">
-		<input id="nomePro" type="text" class="validate" name="nomePro">
-		<label for="nomePro">Nome</label>
-        </div>
- 
- 		<div class="input-field col s5">
-   		<select name ="EstadoCivilPro">
-      		<option value="" disabled selected></option>
-			<option value="solteiro(a)">solteiro(a)</option>
-			<option value="casado(a)">casado(a)</option>
-			<option value="divorciado(a)">divorciado(a)</option>
-			<option value="separado(a)">separado(a)</option>
-			<option value="viuvo(a)">viúvo(a)</option>
-    	</select>
-    	<label>Estado Civil</label>
-  		</div>
-
-      	<div class="input-field col s5">
-		<input id="profissaoPro" type="text" class="validate" name="profissaoPro">
-		<label for="profissaoPro">Profissão</label>
-		</div>
-
-   		<div class="input-field col s5">
-		<input id="cpfPro" type="text" class="validate" onkeypress="$(this).mask('000.000.000-00')" name="cpfPro">
-		<label for="cpfPro">CPF:</label>
-   		</div>
-
-		<div class="input-field col s5">
-		<input id="rgPro" type="text" class="validate" onkeypress="$(this).mask('0.000.000')" name="rgPro">
-		<label for="rgPro">RG:</label>
-   		</div>
-	</div>
-
-	<h5 class="titulo">Endereço</h5>
-      
-    	<div class="row">
-      	<div class="input-field col s5">
-		<input id="ruaPro" type="text" class="validate" name="ruaPro">
-		<label for="ruaPro">Rua:</label>
-        </div>
-
-   		<div class="input-field col s5">
-		<input id="bairroPro" type="text" class="validate" name="bairroPro">
-		<label for="bairroPro">Bairro</label>
-		</div>
-
-		<div class="input-field col s5">
-		<input id="cidadePro" type="text" class="validate" name="cidadePro">
-		<label for="cidadePro">Cidade</label>
-		</div>
-
-		<div class="input-field col s5">
-   		<select name ="EstadoPro">
-     		<option value="" disabled selected></option>
-			<option value="Acre">Acre</option>
-			<option value="Alagoas">Alagoas</option>
-			<option value="Amapa">Amapá</option>
-			<option value="Amazonas">Amazonas</option>
-			<option value="Bahia">Bahia</option>
-			<option value="Ceara">Ceará</option>
-			<option value="Espirito Santo">Espírito Santo</option>
-			<option value="Goias">Goiás</option>
-			<option value="Maranhao">Maranhão</option>
-			<option value="Mato Grosso">Mato Grosso</option>
-			<option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-			<option value="Minas Gerais">Minas Gerais</option>
-			<option value="Para">Pará</option>
-			<option value="Paraiba">Paraíba</option>
-			<option value="Parana">Paraná</option>
-			<option value="Pernambuco">Pernambuco</option>
-			<option value="Piauí">Piauí</option>
-			<option value="Rio de Janeiro">Rio de Janeiro</option>
-			<option value="Rio Grande do Norte">Rio Grande do Norte</option>
-			<option value="Rio Grande do Sul">Rio Grande do Sul</option>
-			<option value="Rondonia">Rondônia</option>
-			<option value="Roraima">Roraima</option>
-			<option value="Santa Catarina">Santa Catarina</option>
-			<option value="Sao Paulo">São Paulo</option>
-			<option value="Sergipe">Sergipe</option>
-			<option value="Tocantins">Tocantins</option>
-			<option value="Distrito Federal">Distrito Federal</option>
-    	</select>
-    	<label>Estado</label>
-  		</div>
-
-  		<div class="input-field col s5">
-		<input id="cepPro" type="text" class="validate" onkeypress="$(this).mask('00000-000')" name="cepPro">
-		<label for="cepPro">CEP:</label>
-   		</div>
-
-		<div class="input-field col s5">
-		<input id="telefonePro" type="tel" class="validate" onkeypress="$(this).mask('(00)0.0000-0000');" name="telefonePro">
-		<label for="telefonePro">Telefone:</label>
-   		</div>
-
-        <div class="input-field col s10">
-          <textarea id="motivo" class="materialize-textarea" name="motivo"></textarea>
-          <label for="textarea1">Qual o motivo para o pedido desta procuração?</label>
-        </div>
-
-</div>
-<button class="waves-effect waves-light btn-large" type="submit">Gerar</button>
-</form>
-</div>
-</body>
+  </body>
 </html>
-
-
-
-

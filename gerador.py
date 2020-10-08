@@ -206,6 +206,6 @@ def pdf(
 	output.close()
 
 	response = make_response(pdf_out)
-	response.headers['Content-Disposition'] = "attachment; filename=download.pdf"
+	response.headers['Content-Disposition'] = "attachment; filename={}.pdf".format(nome)
 	response.mimetype = 'application/pdf'
 	return response
